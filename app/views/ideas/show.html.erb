@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @idea.name %>
+</p>
+
+<p>
+  <strong>Summary:</strong>
+  <%= @idea.summary %>
+</p>
+
+<p>
+  <strong>Idea type:</strong>
+  <%= @idea.idea_type %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @idea.color %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @idea.image %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @idea.link %>
+</p>
+
+<p>
+  <strong>Github:</strong>
+  <%= @idea.github %>
+</p>
+
+<%= link_to 'Edit', edit_idea_path(@idea) %> |
+<%= link_to 'Back', ideas_path %>
