@@ -2,7 +2,11 @@
   <div class=container>
   <%= link_to image_tag("logo.png", alt: "Ideas Factory"), root_path %>
   <br/>
+  <% if user_signed_in? %>
+  
+  <% else %>
   <%= link_to "Sign up", new_user_registration_path, class: "btn btn-lg btn-danger btn-block active" %>
+  <% end %>
   </div>
 </div>
 
@@ -12,4 +16,5 @@
       Take the first step in bringing your project to life, write it down, make it plain, and run with it!
     </small>
   </h1>
+  <%= link_to "Start writing", ideas_path, class: "btn btn-lg btn-danger active" %>
 </div>

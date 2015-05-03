@@ -75,9 +75,9 @@ class IdeasController < ApplicationController
     end
 
     def user_is_current_user
-      #unless current_user.id == params[:user_id]
-      #  flash[:notice] = "You may only view your own ideas."
-      #  redirect_to root_path
-      # end
+     # unless current_user.id == params[:user_id]
+     # flash[:notice] = "You may only view your own ideas."
+     #   redirect_to root_path
+     # end
     end
 end
