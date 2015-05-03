@@ -1,11 +1,12 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_filter :user_is_current_user
 
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = Idea.all
+    @ideas = current_user.ideas
   end
 
   # GET /ideas/1
@@ -71,5 +72,12 @@ class IdeasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
       params.require(:idea).permit(:name, :summary, :idea_type, :color, :image, :link, :github)
+    end
+
+    def user_is_current_user
+      #unless current_user.id == params[:user_id]
+      #  flash[:notice] = "You may only view your own ideas."
+      #  redirect_to root_path
+      # end
     end
 end
