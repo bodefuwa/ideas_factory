@@ -10,41 +10,41 @@
       </ul>
     </div>
   <% end %>
-  
+  <form>
   <div class="well">
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :summary %><br>
     <%= f.text_area :summary %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :idea_type %><br>
     <%= f.text_field :idea_type %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :color %><br>
     <%= f.text_field :color %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :image %><br>
     <%= f.text_field :image %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :link %><br>
     <%= f.text_field :link %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :github %><br>
     <%= f.text_field :github %>
   </div>
-   <div class="field">
+   <div class="field form-group">
     <%= f.label :stage %><br>
     <%= f.collection_select :stage_id, Stage.all, :id, :name, { prompt: "Choose a stage" } %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :category %><br>
     <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: "Choose a category" } %>
   </div>
@@ -53,3 +53,4 @@
   </div>
 <% end %>
 </div>
+</form>
