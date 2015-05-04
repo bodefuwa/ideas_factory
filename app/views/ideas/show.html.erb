@@ -1,31 +1,19 @@
 <p id="notice"><%= notice %></p>
 
+<div>
+<h1><%= @idea.name %></h1>
+<hr>
 <p>
-  <strong>Name:</strong>
-  <%= @idea.name %>
+  <%= @idea.summary.blank??  "No summary yet" : @idea.summary %>
 </p>
-
 <p>
-  <strong>Summary:</strong>
-  <%= @idea.summary %>
+  <%= @idea.idea_type.blank??  "No idea type yet" : @idea.idea_type %>
+  <br/>
+  <%= @idea.color.blank??  "No colors yet" : @idea.color %>
 </p>
-
-<p>
-  <strong>Idea type:</strong>
-  <%= @idea.idea_type %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @idea.color %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @idea.image %>
-</p>
-
-<p>
+<br>
+  <%= image_tag @idea.image, alt: "no picture yet" %>
+  <p>
   <strong>Link:</strong>
   <%= @idea.link %>
 </p>
@@ -35,5 +23,12 @@
   <%= @idea.github %>
 </p>
 
-<%= link_to 'Edit', edit_idea_path(@idea) %> |
-<%= link_to 'Back', ideas_path %>
+  <div class="buttons">
+  <%= link_to button_to 'Edit', edit_idea_path(@idea), class: 'btn btn-warning' %> |
+  <%= link_to button_to 'Ideas', ideas_path, class: 'btn btn-info' %>
+  </div>
+</div>
+
+
+
+
