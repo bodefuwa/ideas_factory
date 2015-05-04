@@ -1,20 +1,24 @@
-<div class="jumbotron">
-  <div class=container>
-  <%= link_to image_tag("logo.png", alt: "Ideas Factory"), root_path %>
+<div class="well pages">
+  <div class="container details">
+  <%= link_to image_tag("logo.png", alt: "Ideas Factory", width: 900), root_path %>
   <br/>
   <% if user_signed_in? %>
   
   <% else %>
-  <%= link_to "Sign up", new_user_registration_path, class: "btn btn-lg btn-danger btn-block active" %>
+  <%= link_to "Sign up", new_user_registration_path, class: "btn btn-lg btn-danger btn-block active sign-up" %>
   <% end %>
   </div>
-</div>
 
-<div>
+<div class="details">
   <h1>Write it down<br>
     <small>
       Take the first step in bringing your project to life, write it down, make it plain, and run with it!
     </small>
   </h1>
   <%= link_to "Start ideating", ideas_path, class: "btn btn-lg btn-danger active" %>
+</div>
+<div>
+  <%= image_tag('idea-details.png', alt: "How it works") %>
+</div>
+
 </div>

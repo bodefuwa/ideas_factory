@@ -1,3 +1,18 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.pages {
+  .sign-up {
+    width: 900px !important;
+  }
+  .well {
+    vertical-align: center;
+  }
+  .details {
+    display: inline;
+    vertical-align: center;
+  }
+  .container {
+    vertical-align: center;
+  }
+}
