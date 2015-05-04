@@ -6,7 +6,12 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = current_user.ideas
+    if params[:stage].blank?
+      @ideas = current_user.ideas
+    else 
+      @stage_id = Stage.find_by(name: params[:stage]).id
+      @ideas = current_user.ideas.where(stage_id: @stage_id).order("created_at DESC")
+    end
   end
 
   # GET /ideas/1
@@ -71,7 +76,7 @@ class IdeasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
-      params.require(:idea).permit(:name, :summary, :idea_type, :color, :image, :link, :github)
+      params.require(:idea).permit(:name, :summary, :idea_type, :color, :image, :link, :github, :stage_id)
     end
 
     def user_is_current_user

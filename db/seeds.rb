@@ -5,3 +5,4 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Stage.create([{name: 'In my head'}, {name: 'Written down'}, {name: 'Working on it'}, {name: 'Out in the market'}, {name: 'Shelved, collecting dust'}])

@@ -39,6 +39,10 @@
     <%= f.label :github %><br>
     <%= f.text_field :github %>
   </div>
+   <div class="field">
+    <%= f.label :stage %><br>
+    <%= f.collection_select :stage_id, Stage.all, :id, :name, { prompt: "Choose a stage" } %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

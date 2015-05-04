@@ -7,6 +7,9 @@
     <% end %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
+        <% Stage.all.each do |stage| %>
+          <li><%= link_to stage.name, ideas_path(stage: stage.name) %></li>
+        <% end %>
         <% if user_signed_in? %>
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
       <% else %>
