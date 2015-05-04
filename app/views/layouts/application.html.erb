@@ -11,10 +11,15 @@
   <div class="ideas">
     <div class="container">
       <%= render 'layouts/header' %>
-      <div>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-      </div>
+        <% if notice %>
+          <div class="alert alert-warning">
+            <p class="notice"><%= notice %></p>
+          </div>
+        <% elsif alert %>
+          <div class="alert alert-danger">
+            <p class="alert"><%= alert %></p>
+          </div>
+        <% end %>
       <%= yield %>
       <%= render 'layouts/footer' %>
     </div>

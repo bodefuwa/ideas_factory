@@ -1,0 +1,9 @@
+<div class="sidebar">
+  <ul class="list-group">
+    <li class="list-group-item"><%= link_to "All ideas", ideas_path %></li>
+      <% Stage.all.each do |stage| %>
+      <span class="badge"><%= stage.name.count(:ideas) %></span>
+        <li class="list-group-item"><%= link_to stage.name, ideas_path(stage: stage.name) %></li>
+      <% end %>
+  </ul>
+</div>

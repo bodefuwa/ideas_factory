@@ -1,43 +1,34 @@
 <p id="notice"><%= notice %></p>
-
+<div class="well">
 <h1>Your Ideas</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Summary</th>
-      <th>Idea type</th>
-      <th>Color</th>
-      <th>Image</th>
-      <th>Link</th>
-      <th>Github</th>
-      <th>Ideator</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @ideas.each do |idea| %>
+<div>
+  <% @ideas.each do |idea| %>
+  <table>
+  <td><h2><%= link_to idea.name, idea %></h2></td>
+   <td><div class="buttons">
+    <table>
       <tr>
-        <td><%= idea.name %></td>
-        <td><%= idea.summary %></td>
-        <td><%= idea.idea_type %></td>
-        <td><%= idea.color %></td>
-        <td><%= idea.image %></td>
-        <td><%= link_to idea.link, idea.link %></td>
-        <td><%= link_to idea.github, idea.github %></td>
-        <td><%= idea.user.email %></td>
-        <td><%= link_to 'Show', idea %></td>
+         <td><%= link_to '<i class="fa fa-folder-open-o"></i>'.html_safe, idea, class: "btn btn-info active" %></td>
         <% if idea.user == current_user %>
-        <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
-        <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_idea_path(idea), class: "btn btn-default active" %></td>
+        <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, idea, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger active" %></td>
         <% end %>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </table>
+  </div></td>
+  </table>
+  <hr/>
+  <p><strong>Summary:</strong> <%= idea.summary %></p>
+  <ul>
+    <li>Colors that inspire your idea: <%= idea.color %></li>
+    <li><%= image_tag idea.image, alt: "Picture" %></li>
+    <li>URL: <%= idea.link %></li>
+    <li>Github: <%= idea.github %></li>
+    <li>Stage: <%= idea.stage.name %></li>
+    <li>Category: <%= idea.category.name %></li>
+  <hr/>
+  <% end %>
+</div>
 
-<br>
-
-<%= link_to 'New Idea', new_idea_path %>
+</div>

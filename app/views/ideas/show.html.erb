@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<div>
+<div class="well">
 <h1><%= @idea.name %></h1>
 <hr>
 <p>
@@ -28,8 +26,8 @@
 </p>
 
   <div class="buttons">
-  <%= link_to button_to 'Edit', edit_idea_path(@idea), class: 'btn btn-warning' %> |
-  <%= link_to button_to 'Ideas', ideas_path, class: 'btn btn-info' %>
+  <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_idea_path(@idea), class: 'btn btn-warning active' %> |
+  <%= link_to 'Ideas', ideas_path, class: 'btn btn-info active' %>
   </div>
 </div>
 
