@@ -5,4 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Stage.delete_all
+Category.delete_all
+
 Stage.create([{name: 'In my head'}, {name: 'Written down'}, {name: 'Working on it'}, {name: 'Out in the market'}, {name: 'Shelved, collecting dust'}])
+
+Category.create([{name: 'Message'}, {name: 'App'}, {name: 'Business'}, {name: 'Book'}, {name: 'Song'}])

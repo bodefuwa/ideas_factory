@@ -13,7 +13,11 @@
 </p>
 <br>
   <%= image_tag @idea.image, alt: "no picture yet" %>
-  <p>
+
+<p>
+  <%= Category.find(@idea.category_id).name %>
+</p>
+<p>
   <strong>Link:</strong>
   <%= @idea.link %>
 </p>
