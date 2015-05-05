@@ -9,7 +9,7 @@
           <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, idea, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger active" %>
           <hr/>
       </div>
-        <p><strong>Summary:</strong> <%= idea.summary %></p>
+        <p><strong>Summary: </strong><blockquote><%= idea.summary.blank?? "No summary yet" : idea.summary %></blockquote></p>
         <ul>
           <li>Colors that inspire your idea: <%= idea.color %></li>
           <li><%= image_tag idea.image, alt: "Picture" %></li>
