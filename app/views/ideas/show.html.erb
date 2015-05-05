@@ -10,10 +10,10 @@
   <%= @idea.color.blank??  "No colors yet" : @idea.color %>
 </p>
 <br>
-  <%= image_tag @idea.image, alt: "no picture yet" %>
+  <%= image_tag @idea.image, alt: "No picture yet" %>
 
 <p>
-  <%= Category.find(@idea.category_id).name %>
+  <%= @idea.category_id.blank?? "Category not yet set" : Category.find(@idea.category_id).name %>
 </p>
 <p>
   <strong>Link:</strong>

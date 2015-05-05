@@ -1,34 +1,24 @@
-<p id="notice"><%= notice %></p>
-<div class="well">
-<h1>Your Ideas</h1>
-
-<div>
-  <% @ideas.each do |idea| %>
-  <table>
-  <td><h2><%= link_to idea.name, idea %></h2></td>
-   <td><div class="buttons">
-    <table>
-      <tr>
-         <td><%= link_to '<i class="fa fa-folder-open-o"></i>'.html_safe, idea, class: "btn btn-info active" %></td>
-        <% if idea.user == current_user %>
-        <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_idea_path(idea), class: "btn btn-default active" %></td>
-        <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, idea, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger active" %></td>
-        <% end %>
-      </tr>
-    </table>
-  </div></td>
-  </table>
-  <hr/>
-  <p><strong>Summary:</strong> <%= idea.summary %></p>
-  <ul>
-    <li>Colors that inspire your idea: <%= idea.color %></li>
-    <li><%= image_tag idea.image, alt: "Picture" %></li>
-    <li>URL: <%= idea.link %></li>
-    <li>Github: <%= idea.github %></li>
-    <li>Stage: <%= idea.stage.name %></li>
-    <li>Category: <%= idea.category.name %></li>
-  <hr/>
-  <% end %>
-</div>
-
+<div class="well ideas">
+  <h1>Your Ideas</h1>
+  <div class="container">
+    <% @ideas.each do |idea| %>
+      <div class="idea-header">
+        <h2><%= link_to idea.name, idea %></h2>
+          <%= link_to '<i class="fa fa-folder-open-o"></i>'.html_safe, idea, class: "btn btn-info active" %>
+          <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_idea_path(idea), class: "btn btn-default active" %>
+          <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, idea, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger active" %>
+          <hr/>
+      </div>
+        <p><strong>Summary:</strong> <%= idea.summary %></p>
+        <ul>
+          <li>Colors that inspire your idea: <%= idea.color %></li>
+          <li><%= image_tag idea.image, alt: "Picture" %></li>
+          <li>URL: <%= idea.link.blank?? "You don't have a url yet" : idea.link %></li>
+          <li>Github: <%= idea.github.blank?? "No github link yet" : idea.github %></li>
+          <li>Stage: <%= idea.stage.blank?? "No stage for this idea" : idea.stage.name %></li>
+          <li>Category: <%= idea.category.blank?? "No category set for this idea" : idea.category.name %></li>
+        </ul>
+     
+    <% end %>
+  </div>
 </div>
