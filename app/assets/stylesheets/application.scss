@@ -70,8 +70,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', end
     padding-top: 9px;
     font-weight: bold;
     &:hover {
-      color: white;
+      color: #ffe34d;
       text-decoration: none;
     }
+    text-glow:hover, .text-glow:focus, .text-glow:active {
+   -webkit-stroke-width: 5.3px;
+   -webkit-stroke-color: #ffe34d;
+   -webkit-fill-color: #ffe34d;
+   text-shadow: 1px 0px 20px yellow;
+   -webkit-transition: width 0.3s; /*Safari & Chrome*/
+   transition: width 0.3s;
+   -moz-transition: width 0.3s; /* Firefox 4 */
+   -o-transition: width 0.3s; /* Opera */
+   }
   }
 }
